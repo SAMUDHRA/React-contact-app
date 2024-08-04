@@ -13,6 +13,7 @@ import EditContact from "./EditContact";
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts,setContacts] = useState([])
+  const [searchTerm, setSearchTerm] = useState();
 
   //RetriveContacts
   const retriveContacts = async () => {
@@ -52,6 +53,10 @@ function App() {
     setContacts(newContactList);
   };
 
+  const searchHandler = () => {
+    
+  }
+
 //   const updateContactHandler = async (updatedContact) => {
 //   const response = await api.put(`/contacts/${updatedContact.id}`, updatedContact);
 //   const { id, name, email } = response.data;
@@ -89,7 +94,10 @@ function App() {
         <Routes>  
         <Route 
             path = "/" 
-            element = {<ContactList contacts = {contacts} getContactId = {removeContactHandler} />} 
+            element = {<ContactList contacts = {contacts} 
+            getContactId = {removeContactHandler} 
+            term = {searchTerm} 
+            searchKeyword = { searchHandler }/>} 
           />
           <Route 
             path = "/add" 

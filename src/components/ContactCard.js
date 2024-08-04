@@ -7,8 +7,16 @@ const ContactCard = (props) => {
     return (
         <div className="item">
             <div className="right floated content">
-                <i className="trash alternate outline icon" style={{ color: "red", cursor: "pointer", marginTop: "7px"}} 
-                onClick={ () => props.clickHandler(id) }></i>
+                <Link
+                     to={`/edit`} 
+                     state={{ contact: props.contact }} >
+                    <i className="edit alternate outline icon" 
+                    style={{ color: "blue", cursor: "pointer",}}> </i>
+                </Link> 
+                <i 
+                className="trash alternate outline icon" 
+                style={{ color: "red", cursor: "pointer", marginTop: "7px"}} 
+                onClick={ () => props.clickHandler(id) }></i> 
             </div>
             <img className="ui avatar image" src={user} alt="user" />
             <div className="content">

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start":"json-server -p 3006 -w db.json"
+    "start":"json-server -p 3006 -w db.json",
+    "build": "CI=false react-scripts build"
     },
   "keywords": [],
   "author": "",

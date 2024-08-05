@@ -1,11 +1,6 @@
 {
   "contacts": [
     {
-      "id": "8586ce5d-61dd-4bcd-8143-90759d3ca4cf",
-      "name": "guruprasath ",
-      "email": "guruprasath.v2021@kgkite.ac.in"
-    },
-    {
       "id": "c2f56656-e79d-4677-b3bf-b047c7e25912",
       "name": "samudhra",
       "email": "samuthrabs@gmail.com"
@@ -14,6 +9,11 @@
       "id": "815187f6-af78-40ec-b1cf-5e028203c19f",
       "name": "guruprasath",
       "email": "guruprasath.v2021@kgkite.ac.in"
+    },
+    {
+      "id": "ba534ae1-314b-4c0b-abe2-eab1edd3e340",
+      "name": "Samudhra V",
+      "email": "samuthrabs@gmail.com"
     }
   ]
 }

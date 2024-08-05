@@ -26,10 +26,7 @@ const ContactCard = (props) => {
                     <div>{email}</div>
                 </Link>
             </div>
-        </div>
-
-           
-           
+        </div>           
     );
 }
 

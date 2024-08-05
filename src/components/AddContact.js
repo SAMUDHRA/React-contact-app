@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-
 function withRouter(Component) {
   function ComponentWithRouterProp(props) {
     const navigate = useNavigate();

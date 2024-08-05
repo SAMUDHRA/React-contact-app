@@ -35,11 +35,7 @@ const ContactDetail = () => {
                         <button className="ui button blue" style={{marginLeft:"480px"}}>Back to Contact List</button>
                     </Link>
                 </div>
-            </div>
-        
-
-           
-           
+            </div>         
     );
 }
 

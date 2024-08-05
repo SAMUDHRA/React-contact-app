@@ -13,9 +13,10 @@ import EditContact from "./EditContact";
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts,setContacts] = useState([])
-  const [searchTerm, setSearchTerm] = useState();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
-  //RetriveContacts
+  
   const retriveContacts = async () => {
     const response = await api.get("/contacts");
     return response.data;
@@ -53,25 +54,20 @@ function App() {
     setContacts(newContactList);
   };
 
-  const searchHandler = () => {
-    
+  const searchHandler = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    if (searchTerm !== "") {
+      const newContactList = contacts.filter((contact) => {
+        return Object.values(contact).join(" ").toLowerCase().includes(searchTerm.toLowerCase());
+      });
+      setSearchResults(newContactList);
+    }
+    else {
+      setSearchResults(contacts);
+    }
   }
 
-//   const updateContactHandler = async (updatedContact) => {
-//   const response = await api.put(`/contacts/${updatedContact.id}`, updatedContact);
-//   const { id, name, email } = response.data;
-
-//   setContacts(
-//     contacts.map((contact) => {
-//       return contact.id === id ? { ...response.data } : contact;
-//     })
-//   );
-// };
-
   useEffect(() => {
-    // const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    // console.log(retriveContacts);
-    // if (retriveContacts) setContacts(retriveContacts);
     const getAllContacts = async () => {
       const allContacts = await retriveContacts();
       if(allContacts) setContacts(allContacts); 
@@ -94,7 +90,7 @@ function App() {
         <Routes>  
         <Route 
             path = "/" 
-            element = {<ContactList contacts = {contacts} 
+            element = {<ContactList contacts = {searchTerm.length < 1 ? contacts : searchResults } 
             getContactId = {removeContactHandler} 
             term = {searchTerm} 
             searchKeyword = { searchHandler }/>} 
@@ -108,11 +104,8 @@ function App() {
             element = {<EditContact updateContactHandler = {updateContactHandler} />} 
           />
           <Route path="/contact/:id" Component = {ContactDetail} />
-          
-      
        </Routes>
-      </Router>
-      
+      </Router>      
     </div>
   );
  }

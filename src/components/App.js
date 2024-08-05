@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import api from "../api/contacts";
 import './App.css';
@@ -36,7 +36,7 @@ function App() {
 
   const updateContactHandler = async (updatedContact) => {
     const response = await api.put(`/contacts/${updatedContact.id}`, updatedContact);
-    const { id, name, email } = response.data;
+    const { id } = response.data;
   
     setContacts(
       contacts.map((contact) => {

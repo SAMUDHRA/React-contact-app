@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start":"json-server -p 3006 -w db.json",
-    "build": "CI=false react-scripts build"
+    "start":"json-server -p 3006 -w db.json"
     },
   "keywords": [],
   "author": "",
@@ -12,8 +11,5 @@
   "description": "",
   "dependencies": {
     "json-server": "^1.0.0-beta.1"
-  },
-  "devDependencies": {
-  "@babel/plugin-proposal-private-property-in-object": "^7.14.5"
-}
+  }
 }
